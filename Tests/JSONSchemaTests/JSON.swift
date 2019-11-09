@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct JSON {
+struct JSON: Equatable {
 
     fileprivate let data: Data
     init(_ string: String) throws {
@@ -11,6 +11,10 @@ struct JSON {
         }
         self.data = data
     }
+}
+
+extension JSON: CustomStringConvertible {
+    var description: String { String(data: data, encoding: .utf8)! }
 }
 
 extension JSONDecoder {
@@ -24,5 +28,12 @@ extension Decodable {
 
     init(_ json: JSON) throws {
         self = try JSONDecoder().decode(Self.self, from: json)
+    }
+}
+
+extension JSON {
+
+    init<T: Encodable>(_ value: T) throws {
+        data = try JSONEncoder().encode(value)
     }
 }
