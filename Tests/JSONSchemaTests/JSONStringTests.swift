@@ -31,6 +31,15 @@ final class JSONStringTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
+    func test_create_pattern() throws {
+        let string = JSONString(pattern: "PATTERN")
+        let json = try JSON(string)
+        let expected = try JSON("""
+            {"type":"string","pattern":"PATTERN"}
+            """)
+        XCTAssertEqual(json, expected)
+    }
+
     func test_create_allValues() throws {
         let string = JSONString(minimumLength: 3, maximumLength: 4)
         let json = try JSON(string)

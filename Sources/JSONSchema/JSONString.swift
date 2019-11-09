@@ -2,13 +2,16 @@
 public struct JSONString {
     public let minimumLength: Int?
     public let maximumLength: Int?
+    public let pattern: String?
 
     public init(
         minimumLength: Int? = nil,
-        maximumLength: Int? = nil
+        maximumLength: Int? = nil,
+        pattern: String? = nil
     ) {
         self.minimumLength = minimumLength
         self.maximumLength = maximumLength
+        self.pattern = pattern
     }
 }
 
@@ -25,6 +28,7 @@ extension JSONString: Codable {
 
         self.minimumLength = try container.decodeIfPresent(Int.self, forKey: .minimumLength)
         self.maximumLength = try container.decodeIfPresent(Int.self, forKey: .maximumLength)
+        self.pattern = try container.decodeIfPresent(String.self, forKey: .pattern)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -32,11 +36,13 @@ extension JSONString: Codable {
         try container.encode("string", forKey: .type)
         try container.encodeIfPresent(minimumLength, forKey: .minimumLength)
         try container.encodeIfPresent(maximumLength, forKey: .maximumLength)
+        try container.encodeIfPresent(pattern, forKey: .pattern)
     }
 
     enum CodingKeys: String, CodingKey {
         case type = "type"
         case minimumLength = "minLength"
         case maximumLength = "maxLength"
+        case pattern = "pattern"
     }
 }
