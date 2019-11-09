@@ -6,7 +6,8 @@ extension JSONSchemaTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONSchemaTests = [
-        ("testExample", testExample),
+        ("testHasSchema", testHasSchema),
+        ("testNoSchema", testNoSchema),
     ]
 }
 
