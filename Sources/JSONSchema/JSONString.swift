@@ -26,9 +26,9 @@ extension JSONString: Codable {
         let typeName = try container.decode(String.self, forKey: .type)
         guard typeName == "string" else { throw IncorrectType() }
 
-        self.minimumLength = try container.decodeIfPresent(Int.self, forKey: .minimumLength)
-        self.maximumLength = try container.decodeIfPresent(Int.self, forKey: .maximumLength)
-        self.pattern = try container.decodeIfPresent(String.self, forKey: .pattern)
+        minimumLength = try container.decodeIfPresent(Int.self, forKey: .minimumLength)
+        maximumLength = try container.decodeIfPresent(Int.self, forKey: .maximumLength)
+        pattern = try container.decodeIfPresent(String.self, forKey: .pattern)
     }
 
     public func encode(to encoder: Encoder) throws {
