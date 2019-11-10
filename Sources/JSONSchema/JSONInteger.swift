@@ -22,6 +22,12 @@ public struct JSONInteger {
     }
 }
 
+extension JSONInteger {
+    static let typeName = "integer"
+}
+
+extension JSONInteger: Equatable {}
+
 extension JSONInteger: Codable {
 
     public init(from decoder: Decoder) throws {
@@ -29,7 +35,7 @@ extension JSONInteger: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let typeName = try container.decode(String.self, forKey: .type)
-        guard typeName == "integer" else { throw IncorrectType() }
+        guard typeName == JSONInteger.typeName else { throw IncorrectType() }
 
         multipleOf = try container.decodeIfPresent(Int.self, forKey: .multipleOf)
         minimum = try container.decodeIfPresent(Int.self, forKey: .minimum)
@@ -40,7 +46,7 @@ extension JSONInteger: Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("integer", forKey: .type)
+        try container.encode(JSONInteger.typeName, forKey: .type)
         try container.encodeIfPresent(multipleOf, forKey: .multipleOf)
         try container.encodeIfPresent(minimum, forKey: .minimum)
         try container.encodeIfPresent(exclusiveMinimum, forKey: .exclusiveMinimum)

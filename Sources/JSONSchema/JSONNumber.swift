@@ -22,6 +22,12 @@ public struct JSONNumber {
     }
 }
 
+extension JSONNumber {
+    static let typeName = "number"
+}
+
+extension JSONNumber: Equatable {}
+
 extension JSONNumber: Codable {
 
     public init(from decoder: Decoder) throws {
@@ -29,7 +35,7 @@ extension JSONNumber: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let typeName = try container.decode(String.self, forKey: .type)
-        guard typeName == "number" else { throw IncorrectType() }
+        guard typeName == JSONNumber.typeName else { throw IncorrectType() }
 
         multipleOf = try container.decodeIfPresent(Double.self, forKey: .multipleOf)
         minimum = try container.decodeIfPresent(Double.self, forKey: .minimum)
@@ -40,7 +46,7 @@ extension JSONNumber: Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("number", forKey: .type)
+        try container.encode(JSONNumber.typeName, forKey: .type)
         try container.encodeIfPresent(multipleOf, forKey: .multipleOf)
         try container.encodeIfPresent(minimum, forKey: .minimum)
         try container.encodeIfPresent(exclusiveMinimum, forKey: .exclusiveMinimum)
