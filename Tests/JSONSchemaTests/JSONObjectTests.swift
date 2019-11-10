@@ -21,4 +21,23 @@ final class JSONObjectTests: XCTestCase {
         XCTAssertEqual(name.type, .string(JSONString()))
         XCTAssertEqual(name.required, false)
     }
+
+    func test_decode_required() throws {
+        let json = try JSON("""
+            {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                },
+                "required": ["name"]
+            }
+            """)
+        let object = try JSONObject(json)
+        let properties = try XCTUnwrap(object.properties)
+        XCTAssertEqual(properties.count, 1)
+        let name = try XCTUnwrap(properties.first)
+        XCTAssertEqual(name.name, "name")
+        XCTAssertEqual(name.type, .string(JSONString()))
+        XCTAssertEqual(name.required, true)
+    }
 }

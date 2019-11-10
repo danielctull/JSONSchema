@@ -42,12 +42,14 @@ extension JSONObject: Codable {
         guard typeName == "object" else { throw IncorrectType() }
 
         let propertiesContainer = try container.nestedContainer(keyedBy: PropertyKey.self, forKey: .properties)
+        let requiredNames = try container.decodeIfPresent([String].self, forKey: .required) ?? []
 
         properties = try propertiesContainer.allKeys.map { key in
             let name = key.stringValue
             let type = try JSONType(from: propertiesContainer.superDecoder(forKey: key))
+            let required = requiredNames.contains(name)
             return Property(name: name,
-                            required: false,
+                            required: required,
                             type: type)
         }
     }
