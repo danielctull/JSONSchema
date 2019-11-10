@@ -17,7 +17,7 @@ final class JSONIntegerTests: XCTestCase {
         let integer = JSONInteger(multipleOf: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
-            {"type":"integer","multipleOf":2}
+            {"multipleOf":2,"type":"integer"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -26,7 +26,7 @@ final class JSONIntegerTests: XCTestCase {
         let integer = JSONInteger(minimum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
-            {"type":"integer","minimum":2}
+            {"minimum":2,"type":"integer"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -35,7 +35,7 @@ final class JSONIntegerTests: XCTestCase {
         let integer = JSONInteger(exclusiveMinimum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
-            {"type":"integer","exclusiveMinimum":2}
+            {"exclusiveMinimum":2,"type":"integer"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -44,7 +44,7 @@ final class JSONIntegerTests: XCTestCase {
         let integer = JSONInteger(maximum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
-            {"type":"integer","maximum":2}
+            {"maximum":2,"type":"integer"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -53,7 +53,7 @@ final class JSONIntegerTests: XCTestCase {
         let integer = JSONInteger(exclusiveMaximum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
-            {"type":"integer","exclusiveMaximum":2}
+            {"exclusiveMaximum":2,"type":"integer"}
             """)
         XCTAssertEqual(json, expected)
     }

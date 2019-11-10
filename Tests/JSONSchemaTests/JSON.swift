@@ -34,6 +34,8 @@ extension Decodable {
 extension JSON {
 
     init<T: Encodable>(_ value: T) throws {
-        data = try JSONEncoder().encode(value)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .sortedKeys
+        data = try encoder.encode(value)
     }
 }

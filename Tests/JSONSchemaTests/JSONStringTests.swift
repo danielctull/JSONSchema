@@ -17,7 +17,7 @@ final class JSONStringTests: XCTestCase {
         let string = JSONString(minimumLength: 3)
         let json = try JSON(string)
         let expected = try JSON("""
-            {"type":"string","minLength":3}
+            {"minLength":3,"type":"string"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -26,7 +26,7 @@ final class JSONStringTests: XCTestCase {
         let string = JSONString(maximumLength: 4)
         let json = try JSON(string)
         let expected = try JSON("""
-            {"type":"string","maxLength":4}
+            {"maxLength":4,"type":"string"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -35,7 +35,7 @@ final class JSONStringTests: XCTestCase {
         let string = JSONString(pattern: "PATTERN")
         let json = try JSON(string)
         let expected = try JSON("""
-            {"type":"string","pattern":"PATTERN"}
+            {"pattern":"PATTERN","type":"string"}
             """)
         XCTAssertEqual(json, expected)
     }
@@ -44,7 +44,7 @@ final class JSONStringTests: XCTestCase {
         let string = JSONString(minimumLength: 3, maximumLength: 4)
         let json = try JSON(string)
         let expected = try JSON("""
-            {"type":"string","maxLength":4,"minLength":3}
+            {"maxLength":4,"minLength":3,"type":"string"}
             """)
         XCTAssertEqual(json, expected)
     }
