@@ -44,9 +44,9 @@ extension JSONString: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case type = "type"
+        case type
         case minimumLength = "minLength"
         case maximumLength = "maxLength"
-        case pattern = "pattern"
+        case pattern
     }
 }

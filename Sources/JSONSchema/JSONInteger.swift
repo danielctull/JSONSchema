@@ -56,11 +56,11 @@ extension JSONInteger: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case type = "type"
-        case multipleOf = "multipleOf"
-        case minimum = "minimum"
-        case exclusiveMinimum = "exclusiveMinimum"
-        case maximum = "maximum"
-        case exclusiveMaximum = "exclusiveMaximum"
+        case type
+        case multipleOf
+        case minimum
+        case exclusiveMinimum
+        case maximum
+        case exclusiveMaximum
     }
 }

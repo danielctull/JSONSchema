@@ -24,6 +24,6 @@ extension JSONType: Decodable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case type = "type"
+        case type
     }
 }

@@ -64,9 +64,9 @@ extension JSONObject: Encodable {
 extension JSONObject {
 
     private enum CodingKeys: String, CodingKey {
-        case properties = "properties"
-        case required = "required"
-        case type = "type"
+        case properties
+        case required
+        case type
     }
 
     private struct PropertyKey: CodingKey {
