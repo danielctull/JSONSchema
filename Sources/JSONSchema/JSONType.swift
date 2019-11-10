@@ -23,7 +23,7 @@ extension JSONType: Decodable {
         }
     }
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case type
     }
 }

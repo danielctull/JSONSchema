@@ -19,7 +19,11 @@ extension JSONString {
     static let typeName = "string"
 }
 
+// MARK: - Equatable
+
 extension JSONString: Equatable {}
+
+// MARK: - Codable
 
 extension JSONString: Codable {
 
@@ -43,7 +47,7 @@ extension JSONString: Codable {
         try container.encodeIfPresent(pattern, forKey: .pattern)
     }
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case type
         case minimumLength = "minLength"
         case maximumLength = "maxLength"

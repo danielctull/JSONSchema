@@ -26,7 +26,11 @@ extension JSONNumber {
     static let typeName = "number"
 }
 
+// MARK: - Equatable
+
 extension JSONNumber: Equatable {}
+
+// MARK: - Codable
 
 extension JSONNumber: Codable {
 
@@ -55,7 +59,7 @@ extension JSONNumber: Codable {
 
     }
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case type
         case multipleOf
         case minimum

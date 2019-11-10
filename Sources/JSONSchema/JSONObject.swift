@@ -30,7 +30,7 @@ extension JSONObject.Property: Equatable {}
 
 // MARK: - Codable
 
-extension JSONObject: Decodable {
+extension JSONObject: Codable {
 
     public init(from decoder: Decoder) throws {
 
@@ -51,17 +51,11 @@ extension JSONObject: Decodable {
                             type: type)
         }
     }
-}
-
-extension JSONObject: Encodable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode("object", forKey: .type)
     }
-}
-
-extension JSONObject {
 
     private enum CodingKeys: String, CodingKey {
         case properties

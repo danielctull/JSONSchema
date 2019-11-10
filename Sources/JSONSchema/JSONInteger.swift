@@ -26,7 +26,11 @@ extension JSONInteger {
     static let typeName = "integer"
 }
 
+// MARK: - Equatable
+
 extension JSONInteger: Equatable {}
+
+// MARK: - Codable
 
 extension JSONInteger: Codable {
 
@@ -55,7 +59,7 @@ extension JSONInteger: Codable {
         
     }
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case type
         case multipleOf
         case minimum
