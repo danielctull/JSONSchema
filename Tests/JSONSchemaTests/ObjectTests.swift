@@ -2,7 +2,7 @@
 import XCTest
 import JSONSchema
 
-final class JSONObjectTests: XCTestCase {
+final class ObjectTests: XCTestCase {
 
     func test_decode_noValues() throws {
         let json = try JSON("""

@@ -2,7 +2,7 @@
 import XCTest
 import JSONSchema
 
-final class JSONSchemaTests: XCTestCase {
+final class SchemaTests: XCTestCase {
 
     func testHasSchema() throws {
         let json = try JSON("""
