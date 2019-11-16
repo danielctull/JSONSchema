@@ -1,5 +1,6 @@
 
 public enum JSONType {
+    case array(JSONArray)
     case boolean
     case integer(JSONInteger)
     case null
@@ -21,6 +22,7 @@ extension JSONType: Decodable {
         let typeName = try container.decode(String.self, forKey: .type)
 
         switch typeName {
+        case JSONArray.typeName: self = .array(try JSONArray(from: decoder))
         case JSONBoolean.typeName: self = .boolean
         case JSONInteger.typeName: self = .integer(try JSONInteger(from: decoder))
         case JSONNull.typeName: self = .null
