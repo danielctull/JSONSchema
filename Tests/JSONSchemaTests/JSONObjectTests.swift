@@ -14,9 +14,9 @@ final class JSONObjectTests: XCTestCase {
             }
             """)
         let object = try JSONObject(json)
-        let properties = try XCTUnwrap(object.properties)
+        let properties = try Unwrap(object.properties)
         XCTAssertEqual(properties.count, 1)
-        let name = try XCTUnwrap(properties.first)
+        let name = try Unwrap(properties.first)
         XCTAssertEqual(name.name, "name")
         XCTAssertEqual(name.type, .string(JSONString()))
         XCTAssertEqual(name.required, false)
@@ -33,9 +33,9 @@ final class JSONObjectTests: XCTestCase {
             }
             """)
         let object = try JSONObject(json)
-        let properties = try XCTUnwrap(object.properties)
+        let properties = try Unwrap(object.properties)
         XCTAssertEqual(properties.count, 1)
-        let name = try XCTUnwrap(properties.first)
+        let name = try Unwrap(properties.first)
         XCTAssertEqual(name.name, "name")
         XCTAssertEqual(name.type, .string(JSONString()))
         XCTAssertEqual(name.required, true)
