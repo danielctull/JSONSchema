@@ -20,6 +20,7 @@ extension JSONType: Decodable {
         switch typeName {
         case JSONString.typeName: self = .string(try JSONString(from: decoder))
         case JSONInteger.typeName: self = .integer(try JSONInteger(from: decoder))
+        case JSONNumber.typeName: self = .number(try JSONNumber(from: decoder))
         default: throw UnknownType()
         }
     }
