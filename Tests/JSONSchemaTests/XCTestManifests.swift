@@ -6,6 +6,12 @@ extension JSONIntegerTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONIntegerTests = [
+        ("test_decode_exclusiveMaximum", test_decode_exclusiveMaximum),
+        ("test_decode_exclusiveMinimum", test_decode_exclusiveMinimum),
+        ("test_decode_maximum", test_decode_maximum),
+        ("test_decode_minimum", test_decode_minimum),
+        ("test_decode_multipleOf", test_decode_multipleOf),
+        ("test_decode_noValues", test_decode_noValues),
         ("test_encode_exclusiveMaximum", test_encode_exclusiveMaximum),
         ("test_encode_exclusiveMinimum", test_encode_exclusiveMinimum),
         ("test_encode_maximum", test_encode_maximum),
