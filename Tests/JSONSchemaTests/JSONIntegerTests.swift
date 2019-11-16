@@ -13,7 +13,7 @@ final class JSONIntegerTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
-    func test_create_multipleOf() throws {
+    func test_encode_multipleOf() throws {
         let integer = JSONInteger(multipleOf: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
@@ -22,7 +22,7 @@ final class JSONIntegerTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
-    func test_create_minimum() throws {
+    func test_encode_minimum() throws {
         let integer = JSONInteger(minimum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
@@ -31,7 +31,7 @@ final class JSONIntegerTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
-    func test_create_exclusiveMinimum() throws {
+    func test_encode_exclusiveMinimum() throws {
         let integer = JSONInteger(exclusiveMinimum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
@@ -40,7 +40,7 @@ final class JSONIntegerTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
-    func test_create_maximum() throws {
+    func test_encode_maximum() throws {
         let integer = JSONInteger(maximum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""
@@ -49,7 +49,7 @@ final class JSONIntegerTests: XCTestCase {
         XCTAssertEqual(json, expected)
     }
 
-    func test_create_exclusiveMaximum() throws {
+    func test_encode_exclusiveMaximum() throws {
         let integer = JSONInteger(exclusiveMaximum: 2)
         let json = try JSON(integer)
         let expected = try JSON("""

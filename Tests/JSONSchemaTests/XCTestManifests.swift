@@ -6,12 +6,12 @@ extension JSONIntegerTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONIntegerTests = [
-        ("test_create_exclusiveMaximum", test_create_exclusiveMaximum),
-        ("test_create_exclusiveMinimum", test_create_exclusiveMinimum),
-        ("test_create_maximum", test_create_maximum),
-        ("test_create_minimum", test_create_minimum),
-        ("test_create_multipleOf", test_create_multipleOf),
-        ("test_create_noValues", test_create_noValues),
+        ("test_encode_exclusiveMaximum", test_encode_exclusiveMaximum),
+        ("test_encode_exclusiveMinimum", test_encode_exclusiveMinimum),
+        ("test_encode_maximum", test_encode_maximum),
+        ("test_encode_minimum", test_encode_minimum),
+        ("test_encode_multipleOf", test_encode_multipleOf),
+        ("test_encode_noValues", test_encode_noValues),
     ]
 }
 
@@ -20,12 +20,12 @@ extension JSONNumberTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONNumberTests = [
-        ("test_create_exclusiveMaximum", test_create_exclusiveMaximum),
-        ("test_create_exclusiveMinimum", test_create_exclusiveMinimum),
-        ("test_create_maximum", test_create_maximum),
-        ("test_create_minimum", test_create_minimum),
-        ("test_create_multipleOf", test_create_multipleOf),
-        ("test_create_noValues", test_create_noValues),
+        ("test_encode_exclusiveMaximum", test_encode_exclusiveMaximum),
+        ("test_encode_exclusiveMinimum", test_encode_exclusiveMinimum),
+        ("test_encode_maximum", test_encode_maximum),
+        ("test_encode_minimum", test_encode_minimum),
+        ("test_encode_multipleOf", test_encode_multipleOf),
+        ("test_encode_noValues", test_encode_noValues),
     ]
 }
 
@@ -54,11 +54,11 @@ extension JSONStringTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONStringTests = [
-        ("test_create_allValues", test_create_allValues),
-        ("test_create_maximumLength", test_create_maximumLength),
-        ("test_create_minimumLength", test_create_minimumLength),
-        ("test_create_noValues", test_create_noValues),
-        ("test_create_pattern", test_create_pattern),
+        ("test_encode_allValues", test_encode_allValues),
+        ("test_encode_maximumLength", test_encode_maximumLength),
+        ("test_encode_minimumLength", test_encode_minimumLength),
+        ("test_encode_noValues", test_encode_noValues),
+        ("test_encode_pattern", test_encode_pattern),
     ]
 }
 
