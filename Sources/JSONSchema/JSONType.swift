@@ -29,7 +29,7 @@ extension JSONType: Decodable {
         case JSONNumber.typeName: self = .number(try JSONNumber(from: decoder))
         case JSONObject.typeName: self = .object(try JSONObject(from: decoder))
         case JSONString.typeName: self = .string(try JSONString(from: decoder))
-        default: throw UnknownType()
+        default: throw UnknownType(name: typeName)
         }
     }
 
