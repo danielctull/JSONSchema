@@ -4,15 +4,18 @@ public struct JSONArray {
     public let itemValidation: ItemValidation?
     public let minimumItems: Int?
     public let maximumItems: Int?
+    public let uniqueItems: Bool
 
     public init(
         itemValidation: ItemValidation? = nil,
         minimumItems: Int? = nil,
-        maximumItems: Int? = nil
+        maximumItems: Int? = nil,
+        uniqueItems: Bool = false
     ) {
         self.itemValidation = itemValidation
         self.minimumItems = minimumItems
         self.maximumItems = maximumItems
+        self.uniqueItems = uniqueItems
     }
 }
 
@@ -45,6 +48,7 @@ extension JSONArray: Codable {
 
         minimumItems = try container.decodeIfPresent(Int.self, forKey: .minItems)
         maximumItems = try container.decodeIfPresent(Int.self, forKey: .maxItems)
+        uniqueItems = try container.decodeIfPresent(Bool.self, forKey: .uniqueItems) ?? false
 
         if let itemType = try? container.decodeIfPresent(JSONType.self, forKey: .items) {
             itemValidation = .list(itemType)
@@ -64,5 +68,6 @@ extension JSONArray: Codable {
         case items
         case minItems
         case maxItems
+        case uniqueItems
     }
 }

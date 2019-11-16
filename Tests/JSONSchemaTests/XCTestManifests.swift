@@ -7,7 +7,12 @@ extension ArrayTests {
     // to regenerate.
     static let __allTests__ArrayTests = [
         ("test_decode_listValidation", test_decode_listValidation),
+        ("test_decode_maximumItems", test_decode_maximumItems),
+        ("test_decode_minimumItems", test_decode_minimumItems),
         ("test_decode_noValues", test_decode_noValues),
+        ("test_decode_uniqueItems_false", test_decode_uniqueItems_false),
+        ("test_decode_uniqueItems_notPresent", test_decode_uniqueItems_notPresent),
+        ("test_decode_uniqueItems_true", test_decode_uniqueItems_true),
     ]
 }
 

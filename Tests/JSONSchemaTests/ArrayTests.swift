@@ -35,4 +35,28 @@ final class ArrayTests: XCTestCase {
         let type = try JSONType(json)
         XCTAssertEqual(type, .array(JSONArray(maximumItems: 100)))
     }
+
+    func test_decode_uniqueItems_notPresent() throws {
+        let json = try JSON("""
+            {"type":"array"}
+            """)
+        let type = try JSONType(json)
+        XCTAssertEqual(type, .array(JSONArray(uniqueItems: false)))
+    }
+
+    func test_decode_uniqueItems_true() throws {
+        let json = try JSON("""
+            {"uniqueItems":true,"type":"array"}
+            """)
+        let type = try JSONType(json)
+        XCTAssertEqual(type, .array(JSONArray(uniqueItems: true)))
+    }
+
+    func test_decode_uniqueItems_false() throws {
+        let json = try JSON("""
+            {"uniqueItems":false,"type":"array"}
+            """)
+        let type = try JSONType(json)
+        XCTAssertEqual(type, .array(JSONArray(uniqueItems: false)))
+    }
 }
