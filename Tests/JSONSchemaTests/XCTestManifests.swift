@@ -66,6 +66,11 @@ extension JSONStringTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__JSONStringTests = [
+        ("test_decode_allValues", test_decode_allValues),
+        ("test_decode_maximumLength", test_decode_maximumLength),
+        ("test_decode_minimumLength", test_decode_minimumLength),
+        ("test_decode_noValues", test_decode_noValues),
+        ("test_decode_pattern", test_decode_pattern),
         ("test_encode_allValues", test_encode_allValues),
         ("test_encode_maximumLength", test_encode_maximumLength),
         ("test_encode_minimumLength", test_encode_minimumLength),
