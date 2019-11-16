@@ -11,4 +11,12 @@ final class ArrayTests: XCTestCase {
         let type = try JSONType(json)
         XCTAssertEqual(type, .array(JSONArray()))
     }
+
+    func test_decode_listValidation() throws {
+        let json = try JSON("""
+            {"type": "array", "items": { "type": "string" }}
+            """)
+        let type = try JSONType(json)
+        XCTAssertEqual(type, .array(JSONArray(itemValidation: .list(.string(JSONString())))))
+    }
 }

@@ -6,6 +6,7 @@ extension ArrayTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__ArrayTests = [
+        ("test_decode_listValidation", test_decode_listValidation),
         ("test_decode_noValues", test_decode_noValues),
     ]
 }
