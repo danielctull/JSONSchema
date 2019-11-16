@@ -2,6 +2,7 @@
 public enum JSONType {
     case boolean
     case integer(JSONInteger)
+    case null
     case number(JSONNumber)
     case object(JSONObject)
     case string(JSONString)
@@ -22,6 +23,7 @@ extension JSONType: Decodable {
         switch typeName {
         case JSONBoolean.typeName: self = .boolean
         case JSONInteger.typeName: self = .integer(try JSONInteger(from: decoder))
+        case JSONNull.typeName: self = .null
         case JSONNumber.typeName: self = .number(try JSONNumber(from: decoder))
         case JSONObject.typeName: self = .object(try JSONObject(from: decoder))
         case JSONString.typeName: self = .string(try JSONString(from: decoder))
