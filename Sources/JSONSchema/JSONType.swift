@@ -1,5 +1,6 @@
 
 public enum JSONType {
+    case boolean
     case integer(JSONInteger)
     case number(JSONNumber)
     case object(JSONObject)
@@ -19,6 +20,7 @@ extension JSONType: Decodable {
         let typeName = try container.decode(String.self, forKey: .type)
 
         switch typeName {
+        case JSONBoolean.typeName: self = .boolean
         case JSONInteger.typeName: self = .integer(try JSONInteger(from: decoder))
         case JSONNumber.typeName: self = .number(try JSONNumber(from: decoder))
         case JSONObject.typeName: self = .object(try JSONObject(from: decoder))
