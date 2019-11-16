@@ -47,6 +47,7 @@ extension JSONObjectTests {
     // to regenerate.
     static let __allTests__JSONObjectTests = [
         ("test_decode_", test_decode_),
+        ("test_decode_noValues", test_decode_noValues),
         ("test_decode_required", test_decode_required),
     ]
 }

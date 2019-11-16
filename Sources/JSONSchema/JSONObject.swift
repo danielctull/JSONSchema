@@ -23,6 +23,10 @@ extension JSONObject {
     }
 }
 
+extension JSONObject {
+    static let typeName = "object"
+}
+
 // MARK: - Equatable
 
 extension JSONObject: Equatable {}
@@ -39,9 +43,13 @@ extension JSONObject: Codable {
         print(container.allKeys)
 
         let typeName = try container.decode(String.self, forKey: .type)
-        guard typeName == "object" else { throw IncorrectType() }
+        guard typeName == JSONObject.typeName else { throw IncorrectType() }
 
-        let propertiesContainer = try container.nestedContainer(keyedBy: PropertyKey.self, forKey: .properties)
+        guard let propertiesContainer = try? container.nestedContainer(keyedBy: PropertyKey.self, forKey: .properties) else {
+            properties = nil
+            return
+        }
+
         let requiredNames = try container.decodeIfPresent([String].self, forKey: .required) ?? []
 
         properties = try propertiesContainer.allKeys.map { key in
@@ -56,7 +64,7 @@ extension JSONObject: Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("object", forKey: .type)
+        try container.encode(JSONObject.typeName, forKey: .type)
     }
 
     private enum CodingKeys: String, CodingKey {

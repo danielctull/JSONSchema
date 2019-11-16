@@ -3,6 +3,7 @@ public enum JSONType {
     case string(JSONString)
     case integer(JSONInteger)
     case number(JSONNumber)
+    case object(JSONObject)
 }
 
 // MARK: - Equatable
@@ -21,6 +22,7 @@ extension JSONType: Decodable {
         case JSONString.typeName: self = .string(try JSONString(from: decoder))
         case JSONInteger.typeName: self = .integer(try JSONInteger(from: decoder))
         case JSONNumber.typeName: self = .number(try JSONNumber(from: decoder))
+        case JSONObject.typeName: self = .object(try JSONObject(from: decoder))
         default: throw UnknownType()
         }
     }

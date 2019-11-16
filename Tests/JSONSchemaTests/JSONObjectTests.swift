@@ -4,6 +4,14 @@ import JSONSchema
 
 final class JSONObjectTests: XCTestCase {
 
+    func test_decode_noValues() throws {
+        let json = try JSON("""
+            {"type":"object"}
+            """)
+        let type = try JSONType(json)
+        XCTAssertEqual(type, .object(JSONObject()))
+    }
+
     func test_decode_() throws {
         let json = try JSON("""
             {
