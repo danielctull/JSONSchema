@@ -39,9 +39,6 @@ extension JSONObject: Codable {
     public init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        print(container.allKeys)
-
         let typeName = try container.decode(String.self, forKey: .type)
         guard typeName == JSONObject.typeName else { throw IncorrectType() }
 
