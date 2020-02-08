@@ -16,7 +16,7 @@ extension JSONType: Equatable {}
 // MARK: - Codable
 
 extension JSONType: Decodable {
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let typeName = try container.decode(String.self, forKey: .type)

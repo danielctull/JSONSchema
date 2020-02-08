@@ -56,7 +56,7 @@ extension JSONInteger: Codable {
         try container.encodeIfPresent(exclusiveMinimum, forKey: .exclusiveMinimum)
         try container.encodeIfPresent(maximum, forKey: .maximum)
         try container.encodeIfPresent(exclusiveMaximum, forKey: .exclusiveMaximum)
-        
+
     }
 
     private enum CodingKeys: String, CodingKey {
