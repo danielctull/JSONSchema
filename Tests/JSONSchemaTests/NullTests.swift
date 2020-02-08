@@ -11,4 +11,13 @@ final class NullTests: XCTestCase {
         let type = try JSONType(json)
         XCTAssertEqual(type, .null)
     }
+
+    func test_encode() throws {
+        let string = JSONType.null
+        let json = try JSON(string)
+        let expected = try JSON("""
+            {"type":"null"}
+            """)
+        XCTAssertEqual(json, expected)
+    }
 }

@@ -22,6 +22,7 @@ extension BooleanTests {
     // to regenerate.
     static let __allTests__BooleanTests = [
         ("test_decode", test_decode),
+        ("test_encode", test_encode),
     ]
 }
 
@@ -51,6 +52,7 @@ extension NullTests {
     // to regenerate.
     static let __allTests__NullTests = [
         ("test_decode", test_decode),
+        ("test_encode", test_encode),
     ]
 }
 
