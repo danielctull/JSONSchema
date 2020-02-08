@@ -14,7 +14,7 @@ struct JSON: Equatable {
 }
 
 extension JSON: CustomStringConvertible {
-    var description: String { String(data: data, encoding: .utf8)! }
+    var description: String { String(data: data, encoding: .utf8) ?? "UNKNOWN" }
 }
 
 extension JSONDecoder {
