@@ -1,9 +1,9 @@
 
 public struct JSONObject {
 
-    public let properties: [Property]?
+    public let properties: [Property]
 
-    public init(properties: [Property]? = nil) {
+    public init(properties: [Property] = []) {
         self.properties = properties
     }
 }
@@ -43,7 +43,7 @@ extension JSONObject: Codable {
         guard typeName == JSONObject.typeName else { throw IncorrectType() }
 
         guard let propertiesContainer = try? container.nestedContainer(keyedBy: PropertyKey.self, forKey: .properties) else {
-            properties = nil
+            properties = []
             return
         }
 
