@@ -27,7 +27,7 @@ final class ObjectTests: XCTestCase {
         let name = try Unwrap(properties.first)
         XCTAssertEqual(name.name, "name")
         XCTAssertEqual(name.type, .string(JSONString()))
-        XCTAssertEqual(name.required, false)
+        XCTAssertFalse(name.required)
     }
 
     func test_decode_required() throws {
@@ -46,6 +46,6 @@ final class ObjectTests: XCTestCase {
         let name = try Unwrap(properties.first)
         XCTAssertEqual(name.name, "name")
         XCTAssertEqual(name.type, .string(JSONString()))
-        XCTAssertEqual(name.required, true)
+        XCTAssertTrue(name.required)
     }
 }
