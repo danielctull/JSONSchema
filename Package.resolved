@@ -27,6 +27,15 @@
           "revision": "0e9a78d6584e3812cd9c09494d5c7b483e8f533c",
           "version": "0.13.1"
         }
+      },
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser",
+        "state": {
+          "branch": null,
+          "revision": "f6ac7b8118ff5d1bc0faee7f37bf6f8fd8f95602",
+          "version": "0.0.1"
+        }
       }
     ]
   },
