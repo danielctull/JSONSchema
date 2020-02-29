@@ -12,7 +12,6 @@ final class BooleanTests: XCTestCase {
         XCTAssertEqual(type, .boolean)
     }
 
-
     func test_encode() throws {
         let string = JSONType.boolean
         let json = try JSON(string)
