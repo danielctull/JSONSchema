@@ -1,6 +1,6 @@
 
+import Generator
 import JSONSchema
-import JSONSchemaGenerator
 import XCTest
 
 final class GeneratorTests: XCTestCase {

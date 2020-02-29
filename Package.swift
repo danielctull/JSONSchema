@@ -15,6 +15,7 @@ let package = Package(
         .package(url: "https://github.com/stencilproject/Stencil", from: "0.13.0")
     ],
     targets: [
+
         .target(
             name: "JSONSchema"),
         .testTarget(
@@ -22,13 +23,10 @@ let package = Package(
             dependencies: ["JSONSchema"]),
 
         .target(
-            name: "JSONSchemaGenerator",
-            dependencies: [
-                "JSONSchema",
-                "Stencil"
-            ]),
+            name: "Generator",
+            dependencies: ["JSONSchema", "Stencil"]),
         .testTarget(
-            name: "JSONSchemaGeneratorTests",
-            dependencies: ["JSONSchema", "JSONSchemaGenerator"]),
+            name: "GeneratorTests",
+            dependencies: ["JSONSchema", "Generator"]),
     ]
 )
