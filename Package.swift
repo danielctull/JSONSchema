@@ -11,11 +11,24 @@ let package = Package(
     products: [
         .library(name: "JSONSchema", targets: ["JSONSchema"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/stencilproject/Stencil", from: "0.13.0")
+    ],
     targets: [
         .target(
             name: "JSONSchema"),
         .testTarget(
             name: "JSONSchemaTests",
             dependencies: ["JSONSchema"]),
+
+        .target(
+            name: "JSONSchemaGenerator",
+            dependencies: [
+                "JSONSchema",
+                "Stencil"
+            ]),
+        .testTarget(
+            name: "JSONSchemaGeneratorTests",
+            dependencies: ["JSONSchema", "JSONSchemaGenerator"]),
     ]
 )

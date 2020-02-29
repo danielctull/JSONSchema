@@ -1,4 +1,20 @@
 
+extension JSONType {
+
+    public static func integer(multipleOf: Int? = nil,
+                               minimum: Int? = nil,
+                               exclusiveMinimum: Int? = nil,
+                               maximum: Int? = nil,
+                               exclusiveMaximum: Int? = nil) -> JSONType {
+
+        .integer(JSONInteger(multipleOf: multipleOf,
+                             minimum: minimum,
+                             exclusiveMinimum: exclusiveMinimum,
+                             maximum: maximum,
+                             exclusiveMaximum: exclusiveMaximum))
+    }
+}
+
 public struct JSONInteger {
 
     public let multipleOf: Int?

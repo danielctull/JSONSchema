@@ -8,7 +8,7 @@ final class SchemaTests: XCTestCase {
         let json = try JSON("""
             { "$schema": "http://json-schema.org/schema#" }
             """)
-        let schema = try JSONSchema(json)
+        let schema = try Schema(json)
         XCTAssertEqual(schema.schema, "http://json-schema.org/schema#")
     }
 
@@ -16,7 +16,7 @@ final class SchemaTests: XCTestCase {
         let json = try JSON("""
             {}
             """)
-        let schema = try JSONSchema(json)
+        let schema = try Schema(json)
         XCTAssertNil(schema.schema)
     }
 }
